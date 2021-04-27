@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Date;
 class EventsController extends BaseController
 {
     public function getEventsWithWorkshops() {
-        return Event::find()->workshops;
+        return Event::with('workshops')->get()->toJson();
     }
 
     public function getFutureEventsWithWorkshops() {
